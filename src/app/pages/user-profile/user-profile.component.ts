@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.scss']
 })
+
 export class UserProfileComponent implements OnInit {
 
   //ITEMS DE PRUEBA PARA LA VISTA
@@ -31,13 +33,17 @@ export class UserProfileComponent implements OnInit {
   // BORRARLOS DESP 
 
   event:String = "Evento";
+  guestValid = false;
+  guests: any[] = [];
+  guestMail: string;
   items: any[] = [];
+  productValid = false;
   productName: string;
   productPresentation: number;
   productPrice: number;
   productPerGuest: number;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.items.push(this.item1);
@@ -45,7 +51,11 @@ export class UserProfileComponent implements OnInit {
     this.items.push(this.item3);
   }
 
-  addItem(){
+  private addGuest(){
+    this.guests.push(this.guestMail);
+  }
+
+  private addItem(){
     this.items.push(this.newItem());
     this.resetProductProperties();
   }
@@ -57,8 +67,6 @@ export class UserProfileComponent implements OnInit {
       price: this.productPrice,
       perGuest: this.productPerGuest
     }
-    console.log(newItem, "newitem");
-    
     return newItem
   }
 
@@ -69,4 +77,21 @@ export class UserProfileComponent implements OnInit {
     this.productPerGuest = 0;
   }
 
+  public checkStatusProductBtn(){
+    this.productValid = this.productNameValid() && this.productPresentation > 0 && this.productPrice > 0 && this.productPerGuest > 0;
+  }
+
+  public productNameValid(){
+    return this.productName !== '' || this.productName !== null;
+  }
+
+  public validMail() {
+    const validEmailRegEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (validEmailRegEx.test(this.guestMail)) {
+        this.guestValid = true;
+    }else {
+      this.guestValid = false;
+    }
+  }
+  
 }
