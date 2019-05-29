@@ -25,12 +25,11 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['user-profile', "Fiesta"]);
   }
 
-  public createPool(){
-    //TODO change name 
+  public createPoolMoney(){
     this.router.navigate(['user-profile', "Baquita"]);
   }
-  public createBasket(){
-    //TODO change name 
+  
+  public createPotLuck(){
     this.router.navigate(['user-profile', "Canasta"]);
   }
 }
