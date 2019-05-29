@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js';
+import { Router } from '@angular/router';
 
 // core components
 import {
@@ -16,20 +17,20 @@ import {
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {}
 
-  public createParty(){
-    console.log("HELLO FIESTA!!!");
+  public createParty(){    
+    this.router.navigate(['user-profile', "Fiesta"]);
   }
 
   public createPool(){
     //TODO change name 
-    console.log("HELLO BAQUITA!!!");
+    this.router.navigate(['user-profile', "Baquita"]);
   }
   public createBasket(){
     //TODO change name 
-    console.log("HELLO CANASTA!!!");
+    this.router.navigate(['user-profile', "Canasta"]);
   }
 }

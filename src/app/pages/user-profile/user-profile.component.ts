@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user-profile',
@@ -32,7 +33,7 @@ export class UserProfileComponent implements OnInit {
     }
   // BORRARLOS DESP 
 
-  event:String = "Evento";
+  event:string = "Evento";
   guestValid = false;
   guests: any[] = [];
   guestMail: string;
@@ -43,9 +44,11 @@ export class UserProfileComponent implements OnInit {
   productPrice: number;
   productPerGuest: number;
 
-  constructor() {}
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
+    this.event = this.route.snapshot.paramMap.get('event');
+    //TODO: BORRAR LO QUE SIGUE CUANDO ESTE TERMINADO
     this.items.push(this.item1);
     this.items.push(this.item2);
     this.items.push(this.item3);
