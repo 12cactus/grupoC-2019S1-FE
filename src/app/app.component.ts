@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {ApiService} from './services/api.service';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +6,5 @@ import {ApiService} from './services/api.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Arma tu evento!';
-
-    constructor(private apiService: ApiService) {}
-
-    ping() {
-        this.apiService.get('ping').subscribe(response => console.log(response));
-    }
+  title = 'Eventeando';
 }
