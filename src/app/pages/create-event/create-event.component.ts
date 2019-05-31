@@ -45,8 +45,8 @@ export class CreateEventComponent implements OnInit {
   productPresentation: number;
   productPrice: number;
   productPerGuest: number;
-  expiryTime = new Date();
-  partyTime = new Date();
+  expiryTime = null;
+  partyTime = null;
 
   constructor(private route: ActivatedRoute, private eventService: EventService, private utilService: UtilsService) {}
 
@@ -110,12 +110,14 @@ export class CreateEventComponent implements OnInit {
       items: this.items,
       guests: this.guests
     };
-
-    if (  new Date(this.partyTime) > new Date(this.expiryTime)) {
-      this.eventService.createEvent(event);
+    if ( this.partyTime == null || this.expiryTime == null ) {
+      this.utilService.showNotification('bottom', 'center', 'Ambas fechas deben ser completadas', 'error');
     } else {
-      console.log('llegaste tarde');
-      this.utilService.showNotification('bottom', 'center', 'El timepo para realizar la apuesta ha expirado', 'error');
+      if (  new Date(this.partyTime) > new Date(this.expiryTime)) {
+        this.eventService.createEvent(event);
+      } else {
+        this.utilService.showNotification('bottom', 'center', 'La fecha del evento debe ser posterior a la fecha de confirmación', 'error');
+      }
     }
   }
 

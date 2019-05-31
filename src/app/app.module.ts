@@ -16,8 +16,8 @@ import { ComponentsModule } from './components/components.module';
 import { AuthService } from '../app/services/auth/auth.service';
 import { CallbackComponent } from './callback/callback.component';
 import { EventService } from './services/eventService/eventService';
-import {UtilsService} from './services/utilService';
-
+import { UtilsService } from './services/utilService';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   imports: [
@@ -27,7 +27,8 @@ import {UtilsService} from './services/utilService';
     ComponentsModule,
     NgbModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ToastrModule.forRoot()
   ],
   declarations: [
     AppComponent,
