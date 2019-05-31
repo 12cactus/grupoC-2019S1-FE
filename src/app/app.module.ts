@@ -15,6 +15,8 @@ import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { AuthService } from '../app/services/auth/auth.service';
 import { CallbackComponent } from './callback/callback.component';
+import { EventService } from './services/eventService/eventService';
+import {UtilsService} from './services/utilService';
 
 
 @NgModule({
@@ -34,7 +36,7 @@ import { CallbackComponent } from './callback/callback.component';
     HomeComponent,
     CallbackComponent
   ],
-  providers: [AuthService],
+  providers: [AuthService, EventService, UtilsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

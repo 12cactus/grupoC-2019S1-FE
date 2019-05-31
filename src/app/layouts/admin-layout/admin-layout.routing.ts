@@ -3,16 +3,15 @@ import { Routes } from '@angular/router';
 import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
 import { IconsComponent } from '../../pages/icons/icons.component';
 import { MapsComponent } from '../../pages/maps/maps.component';
-import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
+import { CreateEventComponent } from '../../pages/create-event/create-event.component';
 import { TablesComponent } from '../../pages/tables/tables.component';
-import { HomeComponent } from 'src/app/pages/home/home.component';
 
 export const AdminLayoutRoutes: Routes = [
-    { path: 'dashboard',            component: DashboardComponent },
-    { path: 'user-profile',         component: UserProfileComponent },
-    { path: 'tables',               component: TablesComponent },
-    { path: 'icons',                component: IconsComponent },
-    { path: 'maps',                 component: MapsComponent },
-    { path: 'user-profile',         component: UserProfileComponent },
-    { path: 'user-profile/:event',  component: UserProfileComponent }
+  { path: 'dashboard',            component: DashboardComponent },
+  { path: 'tables',               component: TablesComponent },
+  { path: 'icons',                component: IconsComponent },
+  { path: 'maps',                 component: MapsComponent },
+  { path: 'create-event',         component: CreateEventComponent },
+  { path: 'create-event/:event',  component: CreateEventComponent },
+
 ];

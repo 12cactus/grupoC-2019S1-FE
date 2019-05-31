@@ -1,14 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import Chart from 'chart.js';
 import { Router } from '@angular/router';
 
-// core components
-import {
-  chartOptions,
-  parseOptions,
-  chartExample1,
-  chartExample2
-} from "../../variables/charts";
 
 @Component({
   selector: 'app-dashboard',
@@ -21,15 +13,13 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {}
 
-  public createParty(){    
-    this.router.navigate(['user-profile', "Fiesta"]);
+  public createParty() {
+    this.router.navigate(['create-event', 'Fiesta']);
   }
-
-  public createPoolMoney(){
-    this.router.navigate(['user-profile', "Baquita"]);
+  public createPoolMoney() {
+    this.router.navigate(['create-event', 'Baquita']);
   }
-  
-  public createPotLuck(){
-    this.router.navigate(['user-profile', "Canasta"]);
+  public createPotLuck() {
+    this.router.navigate(['create-event', 'Canasta']);
   }
 }
